@@ -1,0 +1,60 @@
+<!-- Learning Interpolation -->
+<h2>
+  Welcome {{name}}
+</h2>
+<h2>{{2+2}}</h2>
+<h2>{{"Welcome"+ name}}</h2><!-- String Concatenation-->
+<h2>{{name.length}}</h2>
+<h2>{{name.toUpperCase()}}</h2>
+<!--Javascript built in  functions-->
+<h2>{{greetUser()}}</h2><!-- calling method of component class-->
+
+<!-- Not possible cases -->
+<!-- Assigning result of expression to variable -->
+<!-- <h2> {{ a= 2+2}}</h2> -->
+
+<!-- Access to global variables such as window, screen and so on - to find the url of the current page, template is not aware of global javascript variables. -->
+<h2>{{siteUrl}}</h2>
+
+<!-- Learning Property Binding -->
+
+<input type="text" value="Vishwas">
+<!-- <input [id]="myId" type="text" value = "Vishwas"> -->
+<!-- There is limitation to Interpolation, it can only work with string values, there are HTML properties that are boolean properties that we may need to sometimes bind to. -->
+<!-- input property by default disabled is false, once set disabled property on input element it became true, then again disabled= "false" wont work, becoz html attribute once set can't change again. -->
+<!-- <input disabled ="false" id = "{{myId}}" type = "text" value = "Vishwas"> -->
+<!-- disabled = "{{false}}" wont work -->
+<!-- hardcoding to true/false not of much use -->
+<input [disabled]="isDisabled" id="{{myId}}" type="text" value="Vishwas">
+<button (click)="enable()">Enable</button>
+<button (click)="disable()">Disable</button>
+
+<!-- Alternate syntax for property Binding -->
+<input bind-disabled="isDisabled" type="text" value="Vishwas">
+
+<!-- class binding -->
+<!-- It allows to dynamically add/remove classes from the HTML elements based on certain user interactions of our application, by changing the properties of the component class -->
+<h2 class="text-success"> Code Evolution</h2>
+<h2 [class]="textSuccess"> Code Evolution</h2>
+<!-- regular class attribute becomes a dummy attribute in presence of class binding, we can use one or the other but not both -->
+<h2 class="text-special" [class]="textSuccess">Code Evolution</h2>
+<!-- conditionally apply single class based on an expression that evaluates to true/false -->
+<h2 [class.text-danger]="hasError">Code Evolution</h2>
+<!-- If we want to conditionally apply multiple classes, angular provides ngClass directive -->
+<h2 [ngClass]="messageClasses">Code Evolution</h2>
+
+<!-- Style Binding, used to apply inline styles to HTML elements -->
+<h2 [style.color]="'orange'">Style Binding</h2>
+<h2 [style.color]="hasError ? 'red': 'green'">Style Binding</h2>
+<h2 [style.color]="highlightColor">Style Binding 2</h2>
+<!-- Apply multiple styles -->
+<h2 [ngStyle]="titleStyles">Style Binding 3</h2>
+
+<!-- Event Binding to capture events, data flow from template to class -->
+<button (click)="onClick()">Greet</button>
+<!-- It is possible to set properties on mouse event -->
+{{greeting}}
+<!-- To get information about the click event, for that simply send the $event parameter in the event handler -->
+<button (click)="onClick($event)">Greet</button>
+<!-- $event gives all the information about the DOM element that was raised -->
+<button (click)="greeting1= 'Welcome Vishwas'">Greet</button>{{greeting1}}
