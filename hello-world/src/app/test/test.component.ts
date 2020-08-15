@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-test',
@@ -16,7 +18,14 @@ export class TestComponent implements OnInit {
   public hasError: boolean = true;
   public isSpecial: boolean = true;
   public highlightColor = "orange";
-public greeting="";
+  public greeting = "";
+  public name1 = "";
+  public displayName = true;
+  public color = "red";
+  public colors = ["red", "blue", "green", "yellow"];
+
+  @Input('parentData') public name2;
+  @Output() public childEvent = new EventEmitter();
 
   public messageClasses = {
     "text-success": !this.hasError,
@@ -41,9 +50,17 @@ public greeting="";
   disable() {
     this.isDisabled = true;
   }
-  onClick(event){
+  onClick(event) {
     console.log("Welcome to code evolution");
-    this.greeting= "Welcome to code evolution";
+    this.greeting = "Welcome to code evolution";
     console.log(event);
+  }
+
+  logMessage(value) {
+    console.log(value);
+  }
+
+  fireEvent(){
+    this.childEvent.emit('Hey CodeEvolution');
   }
 }

@@ -1,10 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
   <h1>
-    Welcome to {{ title }}!
+    Welcome to {{ title }}
+    Welcome to {{message}}
   </h1>
- 
-</div>
-<app-test></app-test>
 
+</div>
+<app-test (childEvent)="message=$event" [parentData]="name"></app-test>
+<!-- $event variable will give access to the argument that was sent from the child.  refer to string 'hey codeevolution' we want to send from the child component -->
 <router-outlet></router-outlet>
