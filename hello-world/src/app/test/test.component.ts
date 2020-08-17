@@ -23,9 +23,16 @@ export class TestComponent implements OnInit {
   public displayName = true;
   public color = "red";
   public colors = ["red", "blue", "green", "yellow"];
+  public name3 = "codeevolution";
+  public date = new Date;
 
   @Input('parentData') public name2;
   @Output() public childEvent = new EventEmitter();
+
+  public person = {
+    "firstname": "John",
+    "lastname": "Doe"
+  }
 
   public messageClasses = {
     "text-success": !this.hasError,
@@ -60,7 +67,7 @@ export class TestComponent implements OnInit {
     console.log(value);
   }
 
-  fireEvent(){
+  fireEvent() {
     this.childEvent.emit('Hey CodeEvolution');
   }
 }

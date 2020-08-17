@@ -112,3 +112,32 @@
 <!-- Way Child component sends data to parent component is by using events -->
 
 <button (click)="fireEvent()">Send Event</button>
+
+<!-- Pipes -->
+<!-- Pipes applicable for string property types -->
+<!-- Pipe operator transforms the data only for the view, it does not change the property of the class. -->
+<h2>{{name3}}</h2>
+<h2>{{name3 | lowercase}}</h2>
+<h2>{{name3 |uppercase}}</h2>
+<h2>{{name3 | titlecase}}</h2>
+<h2>{{name3 | slice:3:5}}</h2>
+<h2>{{ person | json}}</h2>
+
+<!-- For Numbers -->
+<h2>{{5.678 | number:'1.2-3'}}</h2>
+<h2>{{5.678 |number:'3.4-5'}}</h2>
+<h2>{{5.678 |number:'3.1-2'}}</h2>
+
+<h2>{{0.25 | percent}}</h2>
+<h2>{{0.25 | currency:'GBP':'code'}}</h2>
+<h2>{{date | date:'shortDate'}}</h2>
+<h2>{{date | date:'shortTime'}}</h2>
+
+<!-- Services -->
+<!-- A class with a specific purpose, share data, implement application logic, external interaction such as connecting to database -->
+<!-- Naming convention - .service.ts -->
+
+<!-- Dependency Injection -->
+<!-- Code without DI - drawbacks -->
+<!-- DI as a design pattern -->
+<!-- DI as a framework -->
