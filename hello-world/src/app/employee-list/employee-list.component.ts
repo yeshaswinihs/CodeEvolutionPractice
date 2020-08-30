@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EmployeeSErviceService } from '../service/employee-service.service';
 
 @Component({
   selector: 'app-employee-list',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeListComponent implements OnInit {
 
-  public employees = [
-    { "id": 1, "name": "Andrew", "age": 30 },
-    { "id": 2, "name": "Brandon", "age": 25 },
-    { "id": 3, "name": "Christian", "age": 26 }
-  ];
-  constructor() { }
+  public employees = [];
 
+  constructor(private _employeeService: EmployeeSErviceService) { }
+
+  // Lifecycle hook gets called once the component has been initialized
   ngOnInit() {
+    this._employeeService.getEmployees()
+      .subscribe(data => this.employees = data);
   }
 
 
