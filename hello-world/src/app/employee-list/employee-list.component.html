@@ -1,4 +1,10 @@
-<h2>Employee List</h2>
-<ul *ngFor="let employee of employees">
-  <li>{{employee.name}}</li>
-</ul>
+<div class="container">
+  <h2>Employee List</h2>
+  <h3>{{errorMsg}}</h3>
+  <ul>
+    <li *ngFor="let employee of employees">
+      {{employee.id}}    {{employee.name}}
+      <span> <a (click)="onSelect(employee)" routerLink="/employee-detail" routerLinkActive="active">Details</a></span>
+    </li>
+  </ul>
+</div>

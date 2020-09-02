@@ -1,4 +1,15 @@
 <h2>Employee Details</h2>
-<ul *ngFor="let employee of employees">
-  <li>{{employee.id}} {{employee.name}} {{employee.age}}</li>
-</ul>
+<h3>{{errorMsg}}</h3>
+
+
+<h2 *ngIf="employeeId;else elseBlock1">
+  You selected employee with {{employeeId}}
+  {{employee.id}} {{employee.name}} {{employee.age}}
+</h2>
+
+<ng-template #elseBlock1>
+  <!-- <h2>else block</h2> -->
+  <ul *ngFor="let employee of employees">
+    <li>{{employee.id}} {{employee.name}} {{employee.age}}</li>
+  </ul>
+</ng-template>
