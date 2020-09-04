@@ -4,6 +4,8 @@ import { LoginComponent } from './login/login.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import {EmployeeOverviewComponent} from './employee-overview/employee-overview.component';
+import {EmployeeContactComponent} from './employee-contact/employee-contact.component';
 
 
 const routes: Routes = [
@@ -12,7 +14,14 @@ const routes: Routes = [
   // Prefered solutuion for empty path scenario is using redirect instead of component. For redirect to worker, we need to mention pathMatch property, 
   { path: 'login', component: LoginComponent },
   { path: 'employee-list', component: EmployeeListComponent },
-  { path: 'employee-detail/:id', component: EmployeeDetailComponent },
+  {
+    path: 'employee-detail/:id',
+    component: EmployeeDetailComponent,
+    children: [
+      { path: 'employee-overview', component: EmployeeOverviewComponent },
+      { path: 'employee-contact', component: EmployeeContactComponent }
+    ]
+  },
   { path: 'employee-detail', component: EmployeeDetailComponent },
   { path: '**', component: PageNotFoundComponent }
 

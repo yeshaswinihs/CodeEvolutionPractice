@@ -4,7 +4,9 @@
 
 <h2 *ngIf="employeeId;else elseBlock1">
   You selected employee with {{employeeId}}
-  {{employee.id}} {{employee.name}} {{employee.age}}
+  <div>
+    {{employee.id}} {{employee.name}} {{employee.age}}
+  </div>
 </h2>
 
 <ng-template #elseBlock1>
@@ -13,3 +15,16 @@
     <li>{{employee.id}} {{employee.name}} {{employee.age}}</li>
   </ul>
 </ng-template>
+
+<div>
+  <button (click)="showOverview()">Overview</button>
+  <button (click)="showContact()">Contact</button>
+</div>
+<router-outlet></router-outlet>
+<div>
+  <button (click)="goPrevious()">Previous</button>
+  <button (click)="goNext()">Next</button>
+</div>
+<div>
+  <button (click)=goToEmployeeList()>Back</button>
+</div>

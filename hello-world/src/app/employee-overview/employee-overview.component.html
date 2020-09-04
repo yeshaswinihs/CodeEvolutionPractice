@@ -1,0 +1,8 @@
+<div>
+  <input [(ngModel)]="name" type="text" (ngModelChange)="onChange($event)">
+
+</div>
+
+<div>
+  <input #modelDir="ngModel" [(ngModel)]="name1" (ngModelChange)="onChange(modelDir)">
+</div>

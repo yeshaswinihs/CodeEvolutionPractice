@@ -10,6 +10,7 @@ import { catchError } from 'rxjs/operators';
 export const url = "http://localhost:8080/employees";
 
 @Injectable({
+  // we declare that this service should be created by the root application injector
   providedIn: 'root'
 })
 export class EmployeeSErviceService {

@@ -1,24 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
-import { FormsModule } from '@angular/forms';
-//import { EmployeeListComponent } from './employee-list/employee-list.component';
-//import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
-import { EmployeeSErviceService } from './service/employee-service.service';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { EmployeeContactComponent } from './employee-contact/employee-contact.component';
+import { EmployeeOverviewComponent } from './employee-overview/employee-overview.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 //import { LoginComponent } from './login/login.component';
 import { HttpIntercepterBaicAuthService } from './service/http-intercepter-baic-auth.service';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { TestComponent } from './test/test.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TestComponent,
     routingComponents,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    EmployeeOverviewComponent,
+    EmployeeContactComponent
     //EmployeeListComponent,
     //EmployeeDetailComponent,
     //LoginComponent
@@ -27,10 +29,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
 
   ],
-  providers: [EmployeeSErviceService,
+  providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterBaicAuthService, multi: true }],
   bootstrap: [AppComponent]
 })
